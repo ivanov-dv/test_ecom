@@ -42,9 +42,7 @@ async def forms(collection):
             'name': 'Profile',
             'first_name': 'text',
             'birthday': 'date',
-            'city': 'text',
-            'phone': 'phone',
-            'email': 'email'
+            'city': 'text'
         },
         {'name': 'Confirmation', 'username': 'text', 'email': 'email'}
     )
@@ -71,9 +69,7 @@ def valid_form_data(forms):
             {
                 'first_name': 'bob',
                 'birthday': '2000-12-31',
-                'city': 'New York',
-                'phone': '+79009001122',
-                'email': 'bob@example.com'
+                'city': 'New York'
             },
             'Profile'
         ),

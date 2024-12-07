@@ -2,6 +2,7 @@
 
 ## Стек технологий
 
+- **Python 3.12**
 - **FastAPI**
 - **Motor (MongoDB)**
 - **Uvicorn**

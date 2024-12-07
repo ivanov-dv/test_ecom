@@ -25,7 +25,7 @@ def check_fields(input_data: dict) -> dict:
     """
     Идентификация типов полей.
 
-    :param input_data: Словарь с данными.
+    :param input_data: Словарь с входными данными.
 
     :return: Словарь (ключи - названия полей, значения - типы полей).
     """

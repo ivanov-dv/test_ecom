@@ -12,23 +12,27 @@ from utils.validators import (
 )
 
 
+CHECK_MAPPING = {
+    validate_date: TYPE_FIELD_DATE,
+    validate_phone_number: TYPE_FIELD_PHONE,
+    validate_email: TYPE_FIELD_EMAIL,
+    (lambda x: isinstance(x, str)): TYPE_FIELD_TEXT,
+    (lambda x: True): TYPE_FIELD_UNKNOWN
+}
+
+
 def check_fields(input_data: dict) -> dict:
     """
     Идентификация типов полей.
 
     :param input_data: Словарь с данными.
+
     :return: Словарь (ключи - названия полей, значения - типы полей).
     """
-    res = {}
-    for key, value in input_data.items():
-        if validate_date(value):
-            res[key] = TYPE_FIELD_DATE
-        elif validate_phone_number(value):
-            res[key] = TYPE_FIELD_PHONE
-        elif validate_email(value):
-            res[key] = TYPE_FIELD_EMAIL
-        elif isinstance(value, str):
-            res[key] = TYPE_FIELD_TEXT
-        else:
-            res[key] = TYPE_FIELD_UNKNOWN
-    return res
+    typing_form = {}
+    for field_name, field_value in input_data.items():
+        for func_validate, field_type in CHECK_MAPPING.items():
+            if func_validate(field_value):
+                typing_form[field_name] = field_type
+                break
+    return typing_form

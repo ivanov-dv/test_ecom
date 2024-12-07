@@ -4,8 +4,9 @@
 
 - **FastAPI**
 - **Motor (MongoDB)**
-- **Pytest**
 - **Uvicorn**
+- **Pytest**
+- **Docker Compose**
 
 ## Установка и запуск через Docker Compose.
 1. Клонируйте репозиторий:

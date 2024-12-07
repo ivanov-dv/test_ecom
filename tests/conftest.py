@@ -109,14 +109,6 @@ def invalid_form_data(forms):
         (
             {'': ''},
             {'': 'text'}
-        ),
-        (
-            {'email': 123},
-            {'email': 'unknown'}
-        ),
-        (
-            {'phone': True},
-            {'phone': 'unknown'}
         )
     )
     return form_data

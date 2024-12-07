@@ -25,10 +25,12 @@ def check_fields(input_data: dict) -> dict:
     """
     Идентификация типов полей.
 
-    :param input_data: Словарь с данными.
+    :param input_data: Словарь с входными данными.
 
     :return: Словарь (ключи - названия полей, значения - типы полей).
     """
+    if not input_data or not isinstance(input_data, dict):
+        return {}
     typing_form = {}
     for field_name, field_value in input_data.items():
         for func_validate, field_type in CHECK_MAPPING.items():

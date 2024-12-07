@@ -25,7 +25,6 @@ def anyio_backend():
 
 @pytest.fixture(scope='function')
 async def collection():
-    """Асинхронная фикстура для подключения к MongoDB."""
     client = AsyncIOMotorClient(config.MONGO_URL)
     db = client[config.MONGO_DATABASE]
     collection = db[config.MONGO_COLLECTION]
@@ -37,14 +36,14 @@ async def collection():
 @pytest.fixture
 async def forms(collection):
     forms = (
-        {'name': 'Registration', 'email': 'email', 'phone': 'phone'},
+        {'form_name': 'Registration', 'email': 'email', 'phone': 'phone'},
         {
-            'name': 'Profile',
+            'form_name': 'Profile',
             'first_name': 'text',
             'birthday': 'date',
             'city': 'text'
         },
-        {'name': 'Confirmation', 'username': 'text', 'email': 'email'}
+        {'form_name': 'Confirmation', 'username': 'text', 'email': 'email'}
     )
     await collection.insert_many(forms)
 

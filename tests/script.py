@@ -2,13 +2,8 @@ import asyncio
 
 import httpx
 from colorama import Fore, Style
-from motor.motor_asyncio import AsyncIOMotorClient
 
-from config import MONGO_URL, MONGO_DATABASE, MONGO_COLLECTION
-
-client = AsyncIOMotorClient(MONGO_URL)
-db = client[MONGO_DATABASE]
-collection = db[MONGO_COLLECTION]
+from utils.db import collection
 
 
 async def insert_documents():

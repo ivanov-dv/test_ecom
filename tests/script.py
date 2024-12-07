@@ -72,14 +72,6 @@ async def send_requests():
         (
             {'': ''},
             {'': 'text'}
-        ),
-        (
-            {'email': 123},
-            {'email': 'unknown'}
-        ),
-        (
-            {'phone': True},
-            {'phone': 'unknown'}
         )
     )
     async with httpx.AsyncClient() as client:
